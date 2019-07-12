@@ -73,7 +73,12 @@ class TableRow extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return !!(this.props.visible || nextProps.visible);
+    const shallowCompare = (obj1, obj2) =>
+      Object.keys(obj1).length === Object.keys(obj2).length &&
+      Object.keys(obj1).every(key => obj1[key] === obj2[key]);
+    const x = !shallowCompare(this.props.record, nextProps.record);
+    return x;
+    // return JSON.stringify(this.props.record) !== JSON.stringify(nextProps.record);
   }
 
   componentDidUpdate() {
@@ -300,6 +305,7 @@ export default connect((state, props) => {
   const { currentHoverKey, expandedRowKeys } = state;
   const { rowKey, ancestorKeys } = props;
   const visible = ancestorKeys.length === 0 || ancestorKeys.every(k => ~expandedRowKeys.indexOf(k));
+  // const visible = rowKey;
 
   return {
     visible,
