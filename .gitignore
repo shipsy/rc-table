@@ -21,7 +21,5 @@ Thumbs.db
 node_modules
 .cache
 assets/**/*.css
-lib
 coverage
 yarn.lock
-es/
