@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'mini-store';
 import { polyfill } from 'react-lifecycles-compat';
-import {isEqual} from 'lodash'
+import { isEqual } from 'lodash';
 import classNames from 'classnames';
 import TableCell from './TableCell';
 import { warningOnce } from './utils';
 
 const shallowCompare = (obj1, obj2) =>
-      Object.keys(obj1).length === Object.keys(obj2).length &&
-      Object.keys(obj1).every(key => obj1[key] === obj2[key]);
+  Object.keys(obj1).length === Object.keys(obj2).length &&
+  Object.keys(obj1).every(key => obj1[key] === obj2[key]);
 class TableRow extends React.Component {
   static propTypes = {
     onRow: PropTypes.func,
@@ -102,7 +102,7 @@ class TableRow extends React.Component {
 
   componentDidUpdate() {
     if (this.state.shouldRender && !this.rowRef) {
-      this.saveRowRef();  
+      this.saveRowRef();
     }
   }
 
