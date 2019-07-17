@@ -52,7 +52,8 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "pre-commit": "rc-tools run pre-commit",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prepare": "rc-tools run compile --babel-runtime && rc-tools run dist"
   },
   "jest": {
     "setupFiles": [
